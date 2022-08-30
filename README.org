@@ -1,0 +1,37 @@
+#+title: README
+
+* Table of Contents :TOC:
+- [[#introduction][Introduction]]
+- [[#installation][Installation]]
+  - [[#from-pip][From pip]]
+  - [[#from-source][From source]]
+- [[#contribution][Contribution]]
+  - [[#formatting-code][Formatting Code]]
+
+* Introduction
+
+Simple Pandas file cache.
+
+* Installation
+
+** From pip
+
+#+begin_src sh
+pip install cacheframe
+#+end_src
+
+** From source
+
+#+begin_src sh
+pip install git+https://github.com/Yevgnen/cacheframe.git
+#+end_src
+
+* Contribution
+
+** Formatting Code
+
+To ensure the codebase complies with a style guide, please use [[https://github.com/PyCQA/flake8][flake8]], [[https://github.com/psf/black][black]] and [[https://github.com/PyCQA/isort][isort]] tools to format and check codebase for compliance with PEP8.
+
+# Local Variables:
+# eval: (add-hook 'before-save-hook (lambda nil (org-pandoc-export-to-gfm)) nil t)
+# End:
