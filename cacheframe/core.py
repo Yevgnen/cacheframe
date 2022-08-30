@@ -34,6 +34,7 @@ def cacheframe(
     file: str = "dataframe.parquet",
     read_kwds: Optional[Mapping] = None,
     write_kwds: Optional[Mapping] = None,
+    disable: bool = False,
 ) -> DataFrame:
     if not read_kwds:
         read_kwds = {}
@@ -53,7 +54,7 @@ def cacheframe(
                     f", supported file types are: {', '.join(_IO_HELPERS)}"
                 )
 
-            if os.path.exists(cache_file):
+            if not disable and os.path.exists(cache_file):
                 df = io.reader(cache_file, **read_kwds)
                 logger.debug("Read dataframe cache from: %s", cache_file)
             else:
