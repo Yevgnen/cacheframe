@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import datetime
 import functools
 import logging
 import os
@@ -34,6 +35,7 @@ def cacheframe(
     file: str = "dataframe.parquet",
     read_kwds: Optional[Mapping] = None,
     write_kwds: Optional[Mapping] = None,
+    ttl: Optional[int] = None,
     disable: bool = False,
 ) -> DataFrame:
     if not read_kwds:
@@ -54,14 +56,25 @@ def cacheframe(
                     f", supported file types are: {', '.join(_IO_HELPERS)}"
                 )
 
-            if not disable and os.path.exists(cache_file):
+            existed = os.path.exists(cache_file)
+            expired = (
+                existed
+                and ttl is not None
+                and datetime.datetime.now().timestamp() - os.path.getctime(cache_file)
+                > ttl
+            )
+            if not disable and existed and not expired:
                 df = io.reader(cache_file, **read_kwds)
                 logger.debug("Read dataframe cache from: %s", cache_file)
             else:
                 os.makedirs(cache_dir, exist_ok=True)
                 df = f(*args, **kwds)
                 io.writer(df, cache_file, **write_kwds)
-                logger.debug("Saved dataframe cache to: %s", cache_file)
+                logger.debug(
+                    "%s dataframe cache to: %s",
+                    "Updated" if expired else "Saved",
+                    cache_file,
+                )
 
             return df
 
