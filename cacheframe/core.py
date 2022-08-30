@@ -67,8 +67,8 @@ def cacheframe(
                 df = io.reader(cache_file, **read_kwds)
                 logger.debug("Read dataframe cache from: %s", cache_file)
             else:
-                os.makedirs(cache_dir, exist_ok=True)
                 df = f(*args, **kwds)
+                os.makedirs(cache_dir, exist_ok=True)
                 io.writer(df, cache_file, **write_kwds)
                 logger.debug(
                     "%s dataframe cache to: %s",
