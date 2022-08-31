@@ -6,6 +6,7 @@ authors = ["Yevgnen Koh <wherejoystarts@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pandas = "*"
 
 [tool.poetry.dev-dependencies]
 
