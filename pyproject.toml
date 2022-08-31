@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cacheframe"
-version = "0.1.0"
+version = "0.1.1"
 description = "Dataframe caches."
 authors = ["Yevgnen Koh <wherejoystarts@gmail.com>"]
 
