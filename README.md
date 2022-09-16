@@ -31,20 +31,12 @@ pip install git+https://github.com/Yevgnen/cacheframe.git
 
 The only provided function decorator is `cacheframe.cacheframe` with the following arguments:
 
-`cache_dir`  
-directory to place cache files
-
-`file`  
-cache file name, support file types are: `.csv`, `.xlxs`, `.pickle`, `.json`, `.parquet` and `.feather`
-
-`read_kwds`  
-keyword arguments passed to readers (`pandas.to_*`) when reading cache
-
-`write_kwds`  
-keyword arguments passed to writers (`pandas.read_*`) when writing cache
-
+- `cache_dir`: directory to place cache files
+- `file`: cache file name, support file types are: `.csv`, `.xlxs`, `.pickle`, `.json`, `.parquet` and `.feather`
+- `read_kwds`: keyword arguments passed to readers (`pandas.to_*`) when reading cache
+- `write_kwds`: keyword arguments passed to writers (`pandas.read_*`) when writing cache
 - `ttl`: optional TTL value to invalid cache
-- `disable` :: boolean indicator to enable or disable cache
+- `disable`: boolean indicator to enable or disable cache
 
 ## Example
 
