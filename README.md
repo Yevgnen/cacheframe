@@ -54,7 +54,7 @@ from cacheframe import cacheframe
 
 @cacheframe(cache_dir=".cache", file="dataframe.parquet", ttl=3)
 def read_large_dataframe() -> DataFrame:
-    print("Reading dataframe...")
+    print("Reading a very large dataframe...")
     time.sleep(2)
 
     df = pd.DataFrame([{"x": 1, "y": 2}, {"x": 99, "y": 100}])
