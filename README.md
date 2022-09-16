@@ -11,7 +11,7 @@
 
 # Introduction
 
-Simple Pandas file cache.
+Simple Pandas dataframe file cache.
 
 # Installation
 
