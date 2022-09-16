@@ -5,6 +5,8 @@
 - [[#installation][Installation]]
   - [[#from-pip][From pip]]
   - [[#from-source][From source]]
+- [[#usage][Usage]]
+  - [[#example][Example]]
 - [[#contribution][Contribution]]
   - [[#formatting-code][Formatting Code]]
 
@@ -25,6 +27,21 @@ pip install cacheframe
 #+begin_src sh
 pip install git+https://github.com/Yevgnen/cacheframe.git
 #+end_src
+
+* Usage
+
+The only provided function decorator is ~cacheframe.cacheframe~ with the following arguments:
+
+- ~cache_dir~ :: directory to place cache files
+- ~file~ :: cache file name, support file types are: ~.csv~, ~.xlxs~, ~.pickle~, ~.json~, ~.parquet~ and ~.feather~
+- ~read_kwds~ :: keyword arguments passed to readers (~pandas.to_*~) when reading cache
+- ~write_kwds~ :: keyword arguments passed to writers (~pandas.read_*~) when writing cache
+- ~ttl~: optional TTL value to invalid cache
+- ~disable~ :: boolean indicator to enable or disable cache
+
+** Example
+
+#+include: examples/example.py src python
 
 * Contribution
 
