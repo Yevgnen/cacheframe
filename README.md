@@ -38,6 +38,8 @@ The only provided function decorator is `cacheframe.cacheframe` with the followi
 - `ttl`: optional TTL value to invalid cache
 - `disable`: boolean indicator to enable or disable cache (default: `False`)
 
+The wrapped function should return single dataframe.
+
 Note that as Pandas does NOT install required engines for reading or writing specific file types, you maybe need to install them manually, e.g. `pyarrow` for `.feather`, `fastparquet` for `.parquet`, `openpyxl` for `.xlsx` …
 
 ## Example
