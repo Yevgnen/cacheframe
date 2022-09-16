@@ -68,6 +68,12 @@ def cacheframe(
                 logger.debug("Read dataframe cache from: %s", cache_file)
             else:
                 df = f(*args, **kwds)
+                if not isinstance(df, DataFrame):
+                    raise ValueError(
+                        "Wrapped function should return single DataFrame"
+                        f", got: {df.__class__.__name__}"
+                    )
+
                 os.makedirs(cache_dir, exist_ok=True)
                 io.writer(df, cache_file, **write_kwds)
                 logger.debug(
