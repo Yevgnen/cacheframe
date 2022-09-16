@@ -1,4 +1,5 @@
 #+title: README
+#+options: author:nil title:nil
 
 * Table of Contents :TOC:
 - [[#introduction][Introduction]]
