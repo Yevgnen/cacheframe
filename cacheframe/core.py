@@ -5,7 +5,7 @@ import functools
 import logging
 import os
 from dataclasses import dataclass
-from typing import Callable, Mapping, Optional, Union
+from typing import Any, Callable, Mapping, Optional, Union
 
 import pandas as pd
 from pandas import DataFrame
