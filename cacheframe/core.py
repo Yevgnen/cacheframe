@@ -41,6 +41,32 @@ def cacheframe(
     ttl: Optional[int] = None,
     disable: bool = False,
 ) -> Callable[[OriginalFun], DecoratedFun]:
+    """Decorator to help cache dataframe return value.
+
+    Args:
+        cache_dir (Union[str, os.PathLike]): directory to place cache
+            files (default: .cache)
+
+        file (str): cache file name, support file types are: .csv,
+            .xlxs, .pickle, .json, .parquet and .feather
+            (default: dataframe.parquet)
+
+        read_kwds (Optional[Mapping]): optional keyword arguments passed
+            to readers (pandas.to_*) when reading cache (default: None)
+
+        write_kwds (Optional[Mapping]): optional keyword arguments
+            passed to writers (pandas.read_*) when writing cache
+            (default: None)
+
+        ttl (Optional[int]): optional TTL value to invalid cache
+            (default: None)
+
+        disable (bool): boolean indicator to enable or disable cache
+            (default: False)
+
+    Returns:
+        Callable[[OriginalFun], DecoratedFun]: Decorated function.
+    """
     if not read_kwds:
         read_kwds = {}
 
