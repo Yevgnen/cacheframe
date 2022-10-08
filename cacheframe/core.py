@@ -12,6 +12,9 @@ from pandas import DataFrame
 
 logger = logging.getLogger(__name__)
 
+OriginalFun = Callable[[Any, ...], DataFrame]
+DecoratedFun = Callable[[Any, ...], DataFrame]
+
 
 @dataclass
 class IO(object):
@@ -37,7 +40,7 @@ def cacheframe(
     write_kwds: Optional[Mapping] = None,
     ttl: Optional[int] = None,
     disable: bool = False,
-) -> DataFrame:
+) -> Callable[[OriginalFun], DecoratedFun]:
     if not read_kwds:
         read_kwds = {}
 
