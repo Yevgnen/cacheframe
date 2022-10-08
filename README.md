@@ -52,7 +52,6 @@ import time
 import pandas as pd
 from pandas import DataFrame
 
-import cacheframe
 from cacheframe import cacheframe
 
 
